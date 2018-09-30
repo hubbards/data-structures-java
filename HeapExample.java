@@ -1,17 +1,16 @@
 /**
  * This program contains a simple example of a binary (min) heap implementation
  * of the priority queue ADT.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class HeapExample {
     public static void main(String[] args) {
-        // simple example
         System.out.println("Example of heap.");
         System.out.println();
 
         Heap<Integer> h = new Heap<Integer>();
-        int[] a = { 13, 20, 11, 44, 3, 7, 9, 11, 43, 3, 14 };
+        int[] a = {13, 20, 11, 44, 3, 7, 9, 11, 43, 3, 14};
 
         // insert
         System.out.println("Insertions:");

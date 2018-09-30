@@ -6,35 +6,34 @@ import java.util.Scanner;
  * This program contains a simple example of a directed graph with no multiple
  * edges. This program also contains a method for reading a graph from a given
  * input file.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class GraphExample {
     public static void main(String[] args) {
-        // simple example
         System.out.println("Example of graph:");
         System.out.println();
 
         Graph g = new Graph();
-        g.addVertex("a"); // a or 1
-        g.addVertex("b"); // b or 2
-        g.addVertex("c"); // c or 3
-        g.addVertex("d"); // d or 4
-        g.addVertex("e"); // e or 5
-        g.addVertex("f"); // f or 6
-        g.addVertex("g"); // g or 7
-        g.addEdge("a", "d"); // (a, d) or (1, 4)
-        g.addEdge("a", "e"); // (a, e) or (1, 5)
-        g.addEdge("a", "g"); // (a, g) or (1, 7)
-        g.addEdge("b", "c"); // (b, c) or (2, 3)
-        g.addEdge("b", "e"); // (b, e) or (2, 5)
-        g.addEdge("b", "f"); // (b, f) or (2, 6)
-        g.addEdge("c", "d"); // (c, d) or (3, 4)
-        g.addEdge("c", "e"); // (c, e) or (3, 5)
-        g.addEdge("d", "e"); // (d, e) or (4, 5)
-        g.addEdge("e", "f"); // (e, f) or (5, 6)
-        g.addEdge("e", "g"); // (e, g) or (5, 7)
-        g.addEdge("f", "g"); // (f, g) or (6, 7)
+        g.addVertex("a");
+        g.addVertex("b");
+        g.addVertex("c");
+        g.addVertex("d");
+        g.addVertex("e");
+        g.addVertex("f");
+        g.addVertex("g");
+        g.addEdge("a", "d");
+        g.addEdge("a", "e");
+        g.addEdge("a", "g");
+        g.addEdge("b", "c");
+        g.addEdge("b", "e");
+        g.addEdge("b", "f");
+        g.addEdge("c", "d");
+        g.addEdge("c", "e");
+        g.addEdge("d", "e");
+        g.addEdge("e", "f");
+        g.addEdge("e", "g");
+        g.addEdge("f", "g");
 
         System.out.println("Adjacency List:");
         g.printAdjacencyList();
@@ -51,16 +50,16 @@ public class GraphExample {
 
     /**
      * Reads and returns a graph specified by give input files.
-     * 
+     *
      * @param vertex
      * the name of the given vertex file
-     * 
+     *
      * @param edge
      * the name of the given edge file
-     * 
+     *
      * @return
      * graph specified by the given input files
-     * 
+     *
      * @throws FileNotFoundException
      * if the given input files cannot be found
      */
