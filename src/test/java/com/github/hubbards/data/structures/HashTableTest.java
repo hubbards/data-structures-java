@@ -5,6 +5,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Unit tests for the hash table ADT.
+ *
+ * @author Spencer Hubbard
+ */
 public abstract class HashTableTest {
     private HashTable<String> hashTable;
 
@@ -100,6 +105,4 @@ public abstract class HashTableTest {
 
         assertTrue(hashTable.contains("b"));
     }
-
-    // TODO: write more tests
 }

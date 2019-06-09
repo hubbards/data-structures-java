@@ -6,7 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * TODO document class
+ * Unit tests for the list ADT.
+ *
+ * @author Spencer Hubbard
  */
 public abstract class ListTest {
     private List<Integer> list;
@@ -67,6 +69,4 @@ public abstract class ListTest {
 
         assertEquals(1, list.size());
     }
-
-    // TODO: write more tests
 }

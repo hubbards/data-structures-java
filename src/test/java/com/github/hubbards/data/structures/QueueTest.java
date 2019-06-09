@@ -6,7 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * TODO document class
+ * Unit tests for the queue ADT.
+ *
+ * @author Spencer Hubbard
  */
 public abstract class QueueTest {
     private Queue<Integer> queue;
@@ -59,7 +61,29 @@ public abstract class QueueTest {
         queue.dequeue();
     }
 
-    // TODO: write more tests
+    @Test
+    public void testDequeue3() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        assertEquals(1, (int) queue.dequeue());
+        assertEquals(2, (int) queue.dequeue());
+        assertEquals(3, (int) queue.dequeue());
+    }
+
+    @Test
+    public void testDequeue4() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+
+        assertEquals(1, (int) queue.dequeue());
+
+        queue.enqueue(3);
+
+        assertEquals(2, (int) queue.dequeue());
+        assertEquals(3, (int) queue.dequeue());
+    }
 
     @Test(expected = UnderflowException.class)
     public void testPeek1() {
@@ -73,5 +97,15 @@ public abstract class QueueTest {
         queue.peek();
     }
 
-    // TODO: write more tests
+    @Test
+    public void testPeek3() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+
+        assertEquals(1, (int) queue.peek());
+
+        queue.enqueue(3);
+
+        assertEquals(1, (int) queue.peek());
+    }
 }
