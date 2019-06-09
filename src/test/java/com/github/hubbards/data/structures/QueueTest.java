@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 /**
  * Unit tests for the queue ADT.
  *
+ * @see Queue
+ *
  * @author Spencer Hubbard
  */
 public abstract class QueueTest {

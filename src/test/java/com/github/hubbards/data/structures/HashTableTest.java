@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 /**
  * Unit tests for the hash table ADT.
  *
+ * @see HashTable
+ *
  * @author Spencer Hubbard
  */
 public abstract class HashTableTest {

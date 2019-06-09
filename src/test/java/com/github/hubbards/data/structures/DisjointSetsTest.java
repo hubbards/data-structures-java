@@ -43,5 +43,16 @@ public class DisjointSetsTest {
         assertNotEquals(ds.find(0), ds.find(2));
     }
 
+    @Test
+    public void testUnion3() {
+        DisjointSets ds = new DisjointSets(4);
+        ds.union(0, 1);
+        ds.union(1, 2);
+
+        assertEquals(ds.find(0), ds.find(1));
+        assertEquals(ds.find(0), ds.find(2));
+        assertNotEquals(ds.find(0), ds.find(3));
+    }
+
     // TODO: write more tests
 }

@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 /**
  * Unit tests for the list ADT.
  *
+ * @see List
+ *
  * @author Spencer Hubbard
  */
 public abstract class ListTest {

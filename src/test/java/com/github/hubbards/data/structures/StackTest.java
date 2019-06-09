@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 /**
  * Unit tests for stack ADT.
  *
+ * @see Stack
+ *
  * @author Spencer Hubbard
  */
 public abstract class StackTest {

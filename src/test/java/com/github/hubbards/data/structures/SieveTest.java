@@ -1,13 +1,13 @@
 package com.github.hubbards.data.structures;
 
-import java.util.List;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
  * This program is a simple test suit for the sieve of Eratosthenes algorithm.
+ *
+ * @see Sieve
  *
  * @author Spencer Hubbard
  */
@@ -130,7 +130,7 @@ public class SieveTest {
 
     @Test
     public void testSieveOnBigPrime() {
-        List<Integer> numbers = Sieve.sieve(BIG_PRIME);
+        java.util.List<Integer> numbers = Sieve.sieve(BIG_PRIME);
         assertEquals(BIG_PRIME, (int) numbers.get(numbers.size() - 1));
     }
 }
