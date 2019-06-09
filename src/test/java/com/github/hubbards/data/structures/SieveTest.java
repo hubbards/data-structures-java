@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class SieveTest {
     // First six primes
-    private static final int[] SMALL_PRIMES = {2, 3, 5, 7, 11, 13};
+    private static final int[] SMALL_PRIMES = { 2, 3, 5, 7, 11, 13 };
 
     // One hundredth prime
     private static final int BIG_PRIME = 541;
@@ -133,5 +133,4 @@ public class SieveTest {
         List<Integer> numbers = Sieve.sieve(BIG_PRIME);
         assertEquals(BIG_PRIME, (int) numbers.get(numbers.size() - 1));
     }
-
 }
