@@ -7,6 +7,11 @@ import java.util.EmptyStackException;
 
 import static org.junit.Assert.*;
 
+/**
+ * Unit tests for stack ADT.
+ *
+ * @author Spencer Hubbard
+ */
 public abstract class StackTest {
     private Stack<Integer> stack;
 
