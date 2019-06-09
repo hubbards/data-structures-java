@@ -47,14 +47,17 @@ public class DisjointSets {
 
     /**
      * Forms the union of two given sets. Union-by-rank means make the tree with
-     * smaller rank a subtee of the tree with larger rank. Union-by-rank becomes
-     * union-by-height without path compression.
+     * smaller rank a subtree of the tree with larger rank. Union-by-rank
+     * becomes union-by-height without path compression.
      * 
      * @param root1 the index of the root element of the first set
      * 
      * @param root2 the index of the root element of the second set
      * 
      * @throws IndexOutOfBoundsException if the given indices are out of bounds
+     *
+     * @throws IllegalArgumentException if the given indices are equal or not
+     * root elements
      */
     public void union(int root1, int root2) {
         // check preconditions
@@ -103,40 +106,6 @@ public class DisjointSets {
             index = temp;
         }
         return root;
-    }
-
-    /**
-     * Prints the given set.
-     * 
-     * @param root the index of the root element of the set
-     * 
-     * @throws IndexOutOfBoundsException if the given index is out of bounds
-     */
-    public void print(int root) {
-        // check preconditions
-        checkIndex(root);
-        if (array[root] >= 0) {
-            throw new IllegalArgumentException();
-        }
-        // print indicies
-        System.out.print("[" + root);
-        // check indices before root
-        for (int i = 0; i < root; i++) {
-            int temp = find(i);
-            if (temp == root) {
-                // element with index i in set
-                System.out.print(", " + i);
-            }
-        }
-        // check indices after root
-        for (int i = root + 1; i < array.length; i++) {
-            int temp = find(i);
-            if (temp == root) {
-                // element with index i in set
-                System.out.print(", " + i);
-            }
-        }
-        System.out.println("]");
     }
 
     /*
