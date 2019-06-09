@@ -8,10 +8,10 @@ import static org.junit.Assert.*;
 /**
  * TODO document class
  */
-public abstract class ListTest<T extends List<Integer>> {
-    private T list;
+public abstract class ListTest {
+    private List<Integer> list;
 
-    protected abstract T createList();
+    protected abstract List<Integer> createList();
 
     @Before
     public void setUp() {

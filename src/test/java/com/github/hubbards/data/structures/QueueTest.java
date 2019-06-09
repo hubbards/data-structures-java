@@ -8,10 +8,10 @@ import static org.junit.Assert.*;
 /**
  * TODO document class
  */
-public abstract class QueueTest<T extends Queue<Integer>> {
-    private T queue;
+public abstract class QueueTest {
+    private Queue<Integer> queue;
 
-    protected abstract T createQueue();
+    protected abstract Queue<Integer> createQueue();
 
     @Before
     public void setUp() {

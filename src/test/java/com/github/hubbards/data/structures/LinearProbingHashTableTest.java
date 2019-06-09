@@ -3,7 +3,7 @@ package com.github.hubbards.data.structures;
 /**
  * TODO document class
  */
-public class LinearProbingHashTableTest extends HashTableTest<LinearProbingHashTable<String>> {
+public class LinearProbingHashTableTest extends HashTableTest {
     @Override
     protected LinearProbingHashTable<String> createHashTable() {
         return new LinearProbingHashTable<String>();

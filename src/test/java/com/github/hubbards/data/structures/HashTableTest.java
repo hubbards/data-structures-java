@@ -5,10 +5,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public abstract class HashTableTest<T extends HashTable<String>> {
-    private T hashTable;
+public abstract class HashTableTest {
+    private HashTable<String> hashTable;
 
-    protected abstract T createHashTable();
+    protected abstract HashTable<String> createHashTable();
 
     @Before
     public void setUp() {
