@@ -54,7 +54,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for constructing a tree.
      */
-    private TreeNode buildTree(Iterator<E> itr) {
+    private TreeNode<E> buildTree(Iterator<E> itr) {
         if (itr.hasNext()) {
             return new TreeNode<E>(itr.next(), buildTree(itr), buildTree(itr));
         } else {
