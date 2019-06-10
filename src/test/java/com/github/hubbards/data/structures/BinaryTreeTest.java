@@ -11,13 +11,9 @@ import static org.junit.Assert.*;
 public class BinaryTreeTest {
     private BinaryTree<Integer> tree;
 
-    private BinaryTree<Integer> createTree() {
-        return new BinaryTree<Integer>();
-    }
-
     @Before
     public void setUp() {
-        tree = createTree();
+        tree = new BinaryTree<Integer>();
     }
 
     @Test
