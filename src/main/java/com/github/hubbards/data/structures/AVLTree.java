@@ -207,16 +207,14 @@ public class AVLTree<E extends Comparable<E>> {
 
     /*
      * This inner class represents a node in a tree.
-     *
-     * TODO extend BinaryTree.TreeNode
      */
     private static class TreeNode<E> {
-        public E data;
-        public TreeNode<E> left;
-        public TreeNode<E> right;
-        public int height;
+        E data;
+        TreeNode<E> left;
+        TreeNode<E> right;
+        int height;
 
-        public TreeNode(E value) {
+        TreeNode(E value) {
             data = value;
             left = null;
             right = null;

@@ -1,9 +1,9 @@
 package com.github.hubbards.data.structures;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Queue;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.*;
 
 /**
  * <p>
@@ -54,7 +54,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for constructing a tree.
      */
-    private TreeNode<E> buildTree(Iterator<E> itr) {
+    private TreeNode buildTree(Iterator<E> itr) {
         if (itr.hasNext()) {
             return new TreeNode<E>(itr.next(), buildTree(itr), buildTree(itr));
         } else {
@@ -124,90 +124,72 @@ public class BinaryTree<E> {
     }
 
     /**
-     * Prints the elements in this tree using a pre-order traversal.
+     * Returns a pre-order traversal of elements in this tree.
+     *
+     * @return pre-order traversal of elements in this tree
      */
-    public void printPreOrder() {
-        System.out.print("preorder:");
-        printPreOrder(root);
-        System.out.println();
+    public List<E> preOrder() {
+        return preOrder(root);
     }
 
     /*
-     * Helper method for printing preorder traversal of tree.
+     * Helper method for pre-order traversal.
      */
-    private void printPreOrder(TreeNode<E> node) {
+    private List<E> preOrder(TreeNode<E> node) {
+        List<E> list = new LinkedList<E>();
         if (node != null) {
-            System.out.print(" " + node.data);
-            printPreOrder(node.left);
-            printPreOrder(node.right);
+            list.add(node.data);
+            list.addAll(preOrder(node.left));
+            list.addAll(preOrder(node.right));
         }
+        return list;
     }
 
     /**
-     * Prints the elements in this tree using an in-order traversal.
+     * Returns an in-order traversal of elements in this tree.
      */
-    public void printInOrder() {
-        System.out.print("inorder:");
-        printInOrder(root);
-        System.out.println();
+    public List<E> inOrder() {
+        return inOrder(root);
     }
 
     /*
-     * Helper method for printing in-order traversal of tree.
+     * Helper method for in-order traversal of tree.
      */
-    private void printInOrder(TreeNode<E> node) {
+    private List<E> inOrder(TreeNode<E> node) {
+        List<E> list = new LinkedList<E>();
         if (node != null) {
-            printInOrder(node.left);
-            System.out.print(" " + node.data);
-            printInOrder(node.right);
+            list.addAll(preOrder(node.left));
+            list.add(node.data);
+            list.addAll(preOrder(node.right));
         }
+        return list;
     }
 
     /**
-     * Prints the elements in this tree using a post-order traversal.
+     * Returns a post-order traversal of elements in this tree.
      */
-    public void printPostOrder() {
-        System.out.print("postorder:");
-        printPostOrder(root);
-        System.out.println();
+    public List<E> postOrder() {
+        return postOrder(root);
     }
 
     /*
-     * Helper method for printing post-order traversal of tree.
+     * Helper method for post-order traversal of tree.
      */
-    private void printPostOrder(TreeNode<E> node) {
+    private List<E> postOrder(TreeNode<E> node) {
+        List<E> list = new LinkedList<E>();
         if (node != null) {
-            printPostOrder(node.left);
-            printPostOrder(node.right);
-            System.out.print(" " + node.data);
+            list.addAll(preOrder(node.left));
+            list.addAll(preOrder(node.right));
+            list.add(node.data);
         }
+        return list;
     }
 
     /**
-     * Prints the elements in this tree, one per line, following an in-order
-     * traversal and using indentation to indicate depth; prints right-to-left
-     * so that the output looks correct when rotated by ninety degrees
-     * counter-clockwise.
+     * Returns a level-order traversal of elements in this tree.
      */
-    public void printSideways() {
-        printSideways(root, 0);
-    }
-
-    private void printSideways(TreeNode<E> node, int level) {
-        if (node != null) {
-            printSideways(node.right, level + 1);
-            for (int i = 0; i < level; i++) {
-                System.out.print("    ");
-            }
-            System.out.println(node.data);
-            printSideways(node.left, level + 1);
-        }
-    }
-
-    /**
-     * Prints elements in this tree using level-order traversal.
-     */
-    public void printLevelOrder() {
+    public List<E> levelOrder() {
+        List<E> list = new LinkedList<E>();
         Queue<TreeNode<E>> queue = new LinkedList<TreeNode<E>>();
         // add node at level 1
         if (root != null) {
@@ -219,8 +201,8 @@ public class BinaryTree<E> {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode<E> node = queue.remove();
-                // print node at current level
-                System.out.print(node.data + " ");
+                // traverse node at current level
+                list.add(node.data);
                 // add left node at next level
                 if (node.left != null) {
                     queue.add(node.left);
@@ -231,22 +213,22 @@ public class BinaryTree<E> {
                 }
             }
         }
-        System.out.println();
+        return list;
     }
 
     /*
      * This inner class represents a node in a (binary) tree.
      */
-    protected class TreeNode<E> {
-        public E data;
-        public TreeNode<E> left;
-        public TreeNode<E> right;
+    protected static class TreeNode<E> {
+        E data;
+        TreeNode<E> left;
+        TreeNode<E> right;
 
-        public TreeNode(E data) {
+        TreeNode(E data) {
             this(data, null, null);
         }
 
-        public TreeNode(E data, TreeNode<E> left, TreeNode<E> right) {
+        TreeNode(E data, TreeNode<E> left, TreeNode<E> right) {
             this.data = data;
             this.left = left;
             this.right = right;
