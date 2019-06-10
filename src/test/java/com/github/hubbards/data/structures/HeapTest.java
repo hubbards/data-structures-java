@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * This program is a simple test suit for the binary (min) heap implementation
+ * This program is a simple test suite for the binary (min) heap implementation
  * of the priority queue ADT.
  *
  * @see Heap

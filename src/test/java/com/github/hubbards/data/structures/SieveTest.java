@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * This program is a simple test suit for the sieve of Eratosthenes algorithm.
+ * This program is a simple test suite for the sieve of Eratosthenes algorithm.
  *
  * @see Sieve
  *

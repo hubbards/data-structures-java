@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * This program is a simple test suit for the disjoint sets ADT.
+ * This program is a simple test suite for the disjoint sets ADT.
  *
  * @see DisjointSets
  *
