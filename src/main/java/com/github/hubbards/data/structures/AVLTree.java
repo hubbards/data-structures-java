@@ -6,35 +6,31 @@ package com.github.hubbards.data.structures;
  * nonempty tree, the heights of the left and right subtrees differ by at most
  * one. The height of an empty tree is defined to be negative one.
  *
- * TODO extend BinarySearchTree
- *
  * @param <E> the element type of this tree
  *
  * @author Spencer Hubbard
  */
-public class AVLTree<E extends Comparable<E>> {
-    private TreeNode<E> root;
+public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
+    private AVLTreeNode<E> root;
 
     public AVLTree() {
         clear();
     }
 
+    @Override
     public void clear() {
         root = null;
     }
 
-    public boolean isEmpty() {
-        return root == null;
-    }
-
+    @Override
     public void insert(E value) {
         root = insert(root, value);
     }
 
-    private TreeNode<E> insert(TreeNode<E> node, E value) {
+    private AVLTreeNode<E> insert(AVLTreeNode<E> node, E value) {
         if (node == null) {
             // add at root
-            return new TreeNode<E>(value);
+            return new AVLTreeNode<E>(value);
         }
         int temp = value.compareTo(node.data);
         if (temp < 0) {
@@ -72,14 +68,15 @@ public class AVLTree<E extends Comparable<E>> {
         return node;
     }
 
-    public void delete(E value) {
+    @Override
+    public void remove(E value) {
         if (root == null) {
             throw new UnderflowException("empty tree");
         }
         root = delete(root, value);
     }
 
-    private TreeNode<E> delete(TreeNode<E> node, E value) {
+    private AVLTreeNode<E> delete(AVLTreeNode<E> node, E value) {
         // TODO: implement
         throw new RuntimeException("method not implemented");
     }
@@ -102,10 +99,10 @@ public class AVLTree<E extends Comparable<E>> {
      * L2          N1
      *          R2    R1
      */
-    private TreeNode<E> singleL(TreeNode<E> node1) {
+    private AVLTreeNode<E> singleL(AVLTreeNode<E> node1) {
         assert node1 != null && node1.left != null;
         // single rotation with left child
-        TreeNode<E> node2 = node1.left;
+        AVLTreeNode<E> node2 = node1.left;
         node1.left = node2.right;
         node2.right = node1;
         // update height
@@ -133,10 +130,10 @@ public class AVLTree<E extends Comparable<E>> {
      *    N1          R2
      * L1    L2
      */
-    private TreeNode<E> singleR(TreeNode<E> node1) {
+    private AVLTreeNode<E> singleR(AVLTreeNode<E> node1) {
         assert node1 != null && node1.right != null;
         // single rotation with right child
-        TreeNode<E> node2 = node1.right;
+        AVLTreeNode<E> node2 = node1.right;
         node1.right = node2.left;
         node2.left = node1;
         // update height
@@ -166,7 +163,7 @@ public class AVLTree<E extends Comparable<E>> {
      *    N1          N2
      * L1    L3    R3    R2
      */
-    private TreeNode<E> doubleLR(TreeNode<E> node1) {
+    private AVLTreeNode<E> doubleLR(AVLTreeNode<E> node1) {
         assert node1 != null && node1.left != null && node1.left.right != null;
         node1.left = singleR(node1.left);
         return singleL(node1);
@@ -192,7 +189,7 @@ public class AVLTree<E extends Comparable<E>> {
      *    N1          N2
      * L1    L3    R3    R2
      */
-    private TreeNode<E> doubleRL(TreeNode<E> node1) {
+    private AVLTreeNode<E> doubleRL(AVLTreeNode<E> node1) {
         assert node1 != null && node1.right != null && node1.right.left != null;
         node1.right = singleR(node1.right);
         return singleL(node1);
@@ -201,21 +198,20 @@ public class AVLTree<E extends Comparable<E>> {
     /*
      * Returns the height of a given subtree.
      */
-    private int height(TreeNode<E> node) {
+    private int height(AVLTreeNode<E> node) {
         return node == null ? -1 : node.height;
     }
 
     /*
      * This inner class represents a node in a tree.
      */
-    private static class TreeNode<E> {
-        E data;
-        TreeNode<E> left;
-        TreeNode<E> right;
+    private static class AVLTreeNode<E> extends TreeNode<E> {
+        AVLTreeNode<E> left;
+        AVLTreeNode<E> right;
         int height;
 
-        TreeNode(E value) {
-            data = value;
+        AVLTreeNode(E value) {
+            super(value);
             left = null;
             right = null;
             height = 0;

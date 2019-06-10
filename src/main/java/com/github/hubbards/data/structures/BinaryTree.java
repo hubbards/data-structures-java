@@ -43,26 +43,6 @@ public class BinaryTree<E> {
     }
 
     /**
-     * Constructs a tree with a given collection of values.
-     *
-     * @param values the given collection of values
-     */
-    public BinaryTree(Collection<E> values) {
-        root = buildTree(values.iterator());
-    }
-
-    /*
-     * Helper method for constructing a tree.
-     */
-    private TreeNode<E> buildTree(Iterator<E> itr) {
-        if (itr.hasNext()) {
-            return new TreeNode<E>(itr.next(), buildTree(itr), buildTree(itr));
-        } else {
-            return null;
-        }
-    }
-
-    /**
      * Removes all elements from this tree.
      */
     public void clear() {
@@ -214,6 +194,30 @@ public class BinaryTree<E> {
             }
         }
         return list;
+    }
+
+    /**
+     * Inserts a given value into this tree if it does not belong to this tree
+     * already.
+     *
+     * @param value the value to insert
+     */
+    public void insert(E value) {
+        root = insert(root, value);
+    }
+
+    private TreeNode<E> insert(TreeNode<E> node, E value) {
+        if (node == null) {
+            // add at root
+            return new TreeNode<E>(value);
+        }
+        int temp = countLeaves(node.left) - countLeaves(node.right);
+        if (temp <= 0) {
+            node.left = insert(node.left, value);
+        } else {
+            node.right = insert(node.right, value);
+        }
+        return node;
     }
 
     /*
