@@ -43,6 +43,30 @@ public class BinaryTree<E> {
     }
 
     /**
+     * Constructs a tree in level-order from a given array of values.
+     *
+     * @param values the given array of values
+     */
+    public BinaryTree(E[] values) {
+        root = buildTree(values, 0);
+    }
+
+    /*
+     * Helper method for constructing a tree in level-order.
+     */
+    private TreeNode<E> buildTree(E[] values, int i) {
+        if (i < values.length) {
+            return new TreeNode<E>(
+                    values[i],
+                    buildTree(values, 2 * i + 1),
+                    buildTree(values, 2 * i + 2)
+            );
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * Removes all elements from this tree.
      */
     public void clear() {
@@ -138,9 +162,9 @@ public class BinaryTree<E> {
     private List<E> inOrder(TreeNode<E> node) {
         List<E> list = new LinkedList<E>();
         if (node != null) {
-            list.addAll(preOrder(node.left));
+            list.addAll(inOrder(node.left));
             list.add(node.data);
-            list.addAll(preOrder(node.right));
+            list.addAll(inOrder(node.right));
         }
         return list;
     }
@@ -158,8 +182,8 @@ public class BinaryTree<E> {
     private List<E> postOrder(TreeNode<E> node) {
         List<E> list = new LinkedList<E>();
         if (node != null) {
-            list.addAll(preOrder(node.left));
-            list.addAll(preOrder(node.right));
+            list.addAll(postOrder(node.left));
+            list.addAll(postOrder(node.right));
             list.add(node.data);
         }
         return list;
@@ -194,30 +218,6 @@ public class BinaryTree<E> {
             }
         }
         return list;
-    }
-
-    /**
-     * Inserts a given value into this tree if it does not belong to this tree
-     * already.
-     *
-     * @param value the value to insert
-     */
-    public void insert(E value) {
-        root = insert(root, value);
-    }
-
-    private TreeNode<E> insert(TreeNode<E> node, E value) {
-        if (node == null) {
-            // add at root
-            return new TreeNode<E>(value);
-        }
-        int temp = countLeaves(node.left) - countLeaves(node.right);
-        if (temp <= 0) {
-            node.left = insert(node.left, value);
-        } else {
-            node.right = insert(node.right, value);
-        }
-        return node;
     }
 
     /*

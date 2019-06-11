@@ -99,7 +99,12 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         }
     }
 
-    @Override
+    /**
+     * Inserts a given value into this tree if it does not belong to this tree
+     * already.
+     *
+     * @param value the value to insert
+     */
     public void insert(E value) {
         root = insert(root, value);
     }
