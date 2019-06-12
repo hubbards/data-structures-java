@@ -86,16 +86,6 @@ public class BinaryTreeTest {
     }
 
     @Test
-    public void testClear() {
-        Integer[] values = { 1 };
-
-        BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
-        tree.clear();
-
-        assertTrue(tree.isEmpty());
-    }
-
-    @Test
     public void testPreOrder1() {
         Integer[] values = { 1, 2, 3 };
 

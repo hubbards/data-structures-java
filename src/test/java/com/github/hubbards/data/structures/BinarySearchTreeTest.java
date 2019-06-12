@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * TODO: document
+ */
 public class BinarySearchTreeTest {
     @Test
     public void testContains1() {

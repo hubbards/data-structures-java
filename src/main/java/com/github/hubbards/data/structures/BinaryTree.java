@@ -39,7 +39,7 @@ public class BinaryTree<E> {
      * Constructs an empty tree.
      */
     public BinaryTree() {
-        clear();
+        root = null;
     }
 
     /**
@@ -64,13 +64,6 @@ public class BinaryTree<E> {
         } else {
             return null;
         }
-    }
-
-    /**
-     * Removes all elements from this tree.
-     */
-    public void clear() {
-        root = null;
     }
 
     /**

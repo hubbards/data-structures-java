@@ -10,27 +10,84 @@ package com.github.hubbards.data.structures;
  *
  * @author Spencer Hubbard
  */
-public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
-    private AVLTreeNode<E> root;
+public class AVLTree<E extends Comparable<E>> {
+    private TreeNode<E> root;
 
+    /**
+     * Constructs an empty tree.
+     */
     public AVLTree() {
         clear();
     }
 
-    @Override
+    /**
+     * Finds the minimum value in this tree.
+     *
+     * @return the minimum value in this tree
+     *
+     * @throws UnderflowException if this tree is empty
+     */
+    public E findMin() {
+        if (root == null) {
+            throw new UnderflowException("empty tree");
+        }
+        return findMin(root);
+    }
+
+    /*
+     * Helper method for finding minimum value.
+     */
+    private E findMin(TreeNode<E> node) {
+        assert node != null;
+        if (node.left == null) {
+            // smallest value at node
+            return node.data;
+        } else {
+            // smallest value in left subtree
+            return findMin(node.left);
+        }
+    }
+
+    /**
+     * Finds the maximum value in this tree.
+     *
+     * @return the maximum value in this tree
+     *
+     * @throws UnderflowException if this tree is empty
+     */
+    public E findMax() {
+        if (root == null) {
+            throw new UnderflowException("empty tree");
+        }
+        return findMax(root);
+    }
+
+    /*
+     * Helper method for finding maximum value.
+     */
+    private E findMax(TreeNode<E> node) {
+        assert node != null;
+        if (node.right == null) {
+            // largest value at node
+            return node.data;
+        } else {
+            // largest value in right subtree
+            return findMax(node.right);
+        }
+    }
+
     public void clear() {
         root = null;
     }
 
-    @Override
     public void insert(E value) {
         root = insert(root, value);
     }
 
-    private AVLTreeNode<E> insert(AVLTreeNode<E> node, E value) {
+    private TreeNode<E> insert(TreeNode<E> node, E value) {
         if (node == null) {
             // add at root
-            return new AVLTreeNode<E>(value);
+            return new TreeNode<E>(value);
         }
         int temp = value.compareTo(node.data);
         if (temp < 0) {
@@ -41,10 +98,10 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
                 // restore balance condition
                 if (value.compareTo(node.left.data) < 0) {
                     // case 1: insertion into left subtree of left child
-                    singleL(node);
+                    node = singleL(node);
                 } else {
                     // case 2: insertion into right subtree of left child
-                    doubleLR(node);
+                    node = doubleLR(node);
                 }
             }
         } else if (temp > 0) {
@@ -55,10 +112,10 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
                 // restore balance condition
                 if (value.compareTo(node.right.data) < 0) {
                     // case 3: insertion into left subtree of right child
-                    doubleRL(node);
+                    node = doubleRL(node);
                 } else {
                     // case 4: insertion into right subtree of right child
-                    singleR(node);
+                    node = singleR(node);
                 }
             }
         }
@@ -68,15 +125,14 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
         return node;
     }
 
-    @Override
     public void remove(E value) {
         if (root == null) {
             throw new UnderflowException("empty tree");
         }
-        root = delete(root, value);
+        root = remove(root, value);
     }
 
-    private AVLTreeNode<E> delete(AVLTreeNode<E> node, E value) {
+    private TreeNode<E> remove(TreeNode<E> node, E value) {
         // TODO: implement
         throw new RuntimeException("method not implemented");
     }
@@ -99,10 +155,10 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
      * L2          N1
      *          R2    R1
      */
-    private AVLTreeNode<E> singleL(AVLTreeNode<E> node1) {
+    private TreeNode<E> singleL(TreeNode<E> node1) {
         assert node1 != null && node1.left != null;
         // single rotation with left child
-        AVLTreeNode<E> node2 = node1.left;
+        TreeNode<E> node2 = node1.left;
         node1.left = node2.right;
         node2.right = node1;
         // update height
@@ -130,10 +186,10 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
      *    N1          R2
      * L1    L2
      */
-    private AVLTreeNode<E> singleR(AVLTreeNode<E> node1) {
+    private TreeNode<E> singleR(TreeNode<E> node1) {
         assert node1 != null && node1.right != null;
         // single rotation with right child
-        AVLTreeNode<E> node2 = node1.right;
+        TreeNode<E> node2 = node1.right;
         node1.right = node2.left;
         node2.left = node1;
         // update height
@@ -147,23 +203,23 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
      * Perform a double rotation of a given node with its left child and the
      * right child of the left child. Suppose that N1 is the given node, N2 is
      * the left child of N1, and N3 is the right child of N2. Suppose further
-     * that R1 is the left subtree of N1, L2 is the left subtree of N2, and L3
+     * that R1 is the right subtree of N1, L2 is the left subtree of N2, and L3
      * and R3 are the left and right subtrees of N3, respectively. Then a
      * double rotation with N1, N2, and N3 would restore the balance condition
      * of the tree if L3 or R3 is two levels deeper than R1.
      *
      * Before double rotation of N1, N2, and N3:
      *                 N1
-     *     N2                N2
+     *     N2                R1
      * L2        N3
      *        L3    R3
      *
      * After double rotation of N1, N2, and N3:
      *          N3
-     *    N1          N2
-     * L1    L3    R3    R2
+     *    N2          N1
+     * L1    L3    R3    R1
      */
-    private AVLTreeNode<E> doubleLR(AVLTreeNode<E> node1) {
+    private TreeNode<E> doubleLR(TreeNode<E> node1) {
         assert node1 != null && node1.left != null && node1.left.right != null;
         node1.left = singleR(node1.left);
         return singleL(node1);
@@ -189,29 +245,30 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
      *    N1          N2
      * L1    L3    R3    R2
      */
-    private AVLTreeNode<E> doubleRL(AVLTreeNode<E> node1) {
+    private TreeNode<E> doubleRL(TreeNode<E> node1) {
         assert node1 != null && node1.right != null && node1.right.left != null;
-        node1.right = singleR(node1.right);
-        return singleL(node1);
+        node1.right = singleL(node1.right);
+        return singleR(node1);
     }
 
     /*
      * Returns the height of a given subtree.
      */
-    private int height(AVLTreeNode<E> node) {
+    private int height(TreeNode<E> node) {
         return node == null ? -1 : node.height;
     }
 
     /*
      * This inner class represents a node in a tree.
      */
-    private static class AVLTreeNode<E> extends TreeNode<E> {
-        AVLTreeNode<E> left;
-        AVLTreeNode<E> right;
+    private static class TreeNode<E> {
+        E data;
+        TreeNode<E> left;
+        TreeNode<E> right;
         int height;
 
-        AVLTreeNode(E value) {
-            super(value);
+        TreeNode(E value) {
+            data = value;
             left = null;
             right = null;
             height = 0;

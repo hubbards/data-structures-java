@@ -12,6 +12,20 @@ package com.github.hubbards.data.structures;
  */
 public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
     /**
+     * Constructs an empty tree.
+     */
+    public BinarySearchTree() {
+        clear();
+    }
+
+    /**
+     * Removes all elements from this tree.
+     */
+    public void clear() {
+        root = null;
+    }
+
+    /**
      * Checks if this tree contains a given value.
      * 
      * @param value the value to check for
