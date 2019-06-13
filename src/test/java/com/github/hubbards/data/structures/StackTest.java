@@ -8,9 +8,7 @@ import java.util.EmptyStackException;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for stack ADT.
- *
- * @see Stack
+ * This class is a simple test suite for {@link Stack}.
  *
  * @author Spencer Hubbard
  */

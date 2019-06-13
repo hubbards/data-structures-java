@@ -5,9 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * This program is a simple test suite for the sieve of Eratosthenes algorithm.
- *
- * @see Sieve
+ * This class is a simple test suite for {@link Sieve}.
  *
  * @author Spencer Hubbard
  */

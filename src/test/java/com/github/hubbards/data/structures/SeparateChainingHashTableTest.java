@@ -1,10 +1,8 @@
 package com.github.hubbards.data.structures;
 
 /**
- * This program is a simple test suite for the implementation of the hash table
- * ADT using separate chaining to avoid collisions.
- *
- * @see SeparateChainingHashTable
+ * This program is a simple test suite for the {@link SeparateChainingHashTable}
+ * implementation of {@link HashTable}.
  *
  * @author Spencer Hubbard
  */

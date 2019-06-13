@@ -6,9 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the list ADT.
- *
- * @see List
+ * This class is a simple test suite for {@link List}.
  *
  * @author Spencer Hubbard
  */

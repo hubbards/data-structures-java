@@ -7,7 +7,9 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * TODO: document
+ * This class is a simple test suite for {@link BinaryTree}.
+ *
+ * @author Spencer Hubbard
  */
 public class BinaryTreeTest {
     @Test

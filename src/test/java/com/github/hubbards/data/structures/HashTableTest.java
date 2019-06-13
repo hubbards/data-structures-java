@@ -6,9 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the hash table ADT.
- *
- * @see HashTable
+ * This class is a simple test suite for {@link HashTable}.
  *
  * @author Spencer Hubbard
  */

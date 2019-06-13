@@ -6,9 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the queue ADT.
- *
- * @see Queue
+ * This class is a simple test suite for {@link Queue}.
  *
  * @author Spencer Hubbard
  */

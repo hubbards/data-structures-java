@@ -1,8 +1,8 @@
 package com.github.hubbards.data.structures;
 
 /**
- * This program is a simple test suite for the circular array implementation of
- * the queue ADT.
+ * This class is a simple test suite for the {@link ArrayQueue} implementation
+ * of {@link Queue}.
  *
  * @author Spencer Hubbard
  */

@@ -6,7 +6,9 @@ import static org.junit.Assert.*;
 
 
 /**
- * TODO: document
+ * This class is a simple test suite for {@link AVLTree}.
+ *
+ * @author Spencer Hubbard
  */
 public class AVLTreeTest {
     @Test

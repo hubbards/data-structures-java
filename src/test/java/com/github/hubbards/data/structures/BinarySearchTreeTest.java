@@ -5,7 +5,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * TODO: document
+ * This class is a simple test suite for {@link BinarySearchTree}.
+ *
+ * @author Spencer Hubbard
  */
 public class BinarySearchTreeTest {
     @Test

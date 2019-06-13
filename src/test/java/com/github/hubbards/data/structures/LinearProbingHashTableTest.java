@@ -1,10 +1,8 @@
 package com.github.hubbards.data.structures;
 
 /**
- * This program is a simple test suite for the implementation of the hash table
- * ADT using linear probing to avoid collisions.
- *
- * @see LinearProbingHashTable
+ * This class is a simple test suite for the {@link LinearProbingHashTable}
+ * implementation {@link HashTable}.
  *
  * @author Spencer Hubbard
  */

@@ -1,8 +1,8 @@
 package com.github.hubbards.data.structures;
 
 /**
- * This program is a simple test suite for the array list implementation of the
- * list ADT.
+ * This class is a simple test suite for the {@link ArrayList} implementation
+ * of {@link List}.
  *
  * @author Spencer Hubbard
  */
