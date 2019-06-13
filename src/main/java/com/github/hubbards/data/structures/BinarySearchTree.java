@@ -1,5 +1,7 @@
 package com.github.hubbards.data.structures;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * This class represents a generic implementation of the binary search tree ADT
  * without balancing. A binary search tree is a binary tree where the value in
@@ -10,19 +12,15 @@ package com.github.hubbards.data.structures;
  *
  * @author Spencer Hubbard
  */
-public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
+public class BinarySearchTree<E extends Comparable<E>> {
+    // root node of tree
+    private Node<E> root;
+
     /**
      * Constructs an empty tree.
      */
     public BinarySearchTree() {
         clear();
-    }
-
-    /**
-     * Removes all elements from this tree.
-     */
-    public void clear() {
-        root = null;
     }
 
     /**
@@ -40,7 +38,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
     /*
      * Helper method for finding value.
      */
-    private boolean contains(TreeNode<E> node, E value) {
+    private boolean contains(Node<E> node, E value) {
         if (node == null) {
             return false;
         }
@@ -74,8 +72,8 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
     /*
      * Helper method for finding minimum value.
      */
-    private E findMin(TreeNode<E> node) {
-        assert node != null;
+    private E findMin(Node<E> node) {
+        checkNotNull(node);
         if (node.left == null) {
             // smallest value at node
             return node.data;
@@ -102,8 +100,8 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
     /*
      * Helper method for finding maximum value.
      */
-    private E findMax(TreeNode<E> node) {
-        assert node != null;
+    private E findMax(Node<E> node) {
+        checkNotNull(node);
         if (node.right == null) {
             // largest value at node
             return node.data;
@@ -111,6 +109,13 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
             // largest value in right subtree
             return findMax(node.right);
         }
+    }
+
+    /**
+     * Removes all elements from this tree.
+     */
+    public void clear() {
+        root = null;
     }
 
     /**
@@ -126,10 +131,10 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
     /*
      * Helper method for inserting.
      */
-    private TreeNode<E> insert(TreeNode<E> node, E value) {
+    private Node<E> insert(Node<E> node, E value) {
         if (node == null) {
             // add at root
-            return new TreeNode<E>(value);
+            return new Node<E>(value);
         }
         int temp = value.compareTo(node.data);
         if (temp < 0) {
@@ -159,7 +164,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
     /*
      * Helper method for removing.
      */
-    private TreeNode<E> remove(TreeNode<E> node, E value) {
+    private Node<E> remove(Node<E> node, E value) {
         if (node == null) {
             // value not in tree
             return null;
@@ -183,5 +188,24 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
             }
         }
         return node;
+    }
+
+    /*
+     * This inner class represents a node in a (binary search) tree.
+     */
+    private static class Node<E> {
+        E data;
+        Node<E> left;
+        Node<E> right;
+
+        Node(E data) {
+            this(data, null, null);
+        }
+
+        Node(E data, Node<E> left, Node<E> right) {
+            this.data = data;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

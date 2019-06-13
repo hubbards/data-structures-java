@@ -3,7 +3,6 @@ package com.github.hubbards.data.structures;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.*;
 
 /**
  * <p>
@@ -33,7 +32,7 @@ import java.util.*;
  */
 public class BinaryTree<E> {
     // root node of tree
-    protected TreeNode<E> root;
+    private Node<E> root;
 
     /**
      * Constructs an empty tree.
@@ -54,9 +53,9 @@ public class BinaryTree<E> {
     /*
      * Helper method for constructing a tree in level-order.
      */
-    private TreeNode<E> buildTree(E[] values, int i) {
+    private Node<E> buildTree(E[] values, int i) {
         if (i < values.length) {
-            return new TreeNode<E>(
+            return new Node<E>(
                     values[i],
                     buildTree(values, 2 * i + 1),
                     buildTree(values, 2 * i + 2)
@@ -88,7 +87,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for counting levels.
      */
-    private int countLevels(TreeNode<E> node) {
+    private int countLevels(Node<E> node) {
         if (node == null) {
             return 0;
         } else {
@@ -108,7 +107,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for counting leaves.
      */
-    private int countLeaves(TreeNode<E> node) {
+    private int countLeaves(Node<E> node) {
         if (node == null) {
             return 0;
         } else if (node.left == null && node.right == null) {
@@ -132,7 +131,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for pre-order traversal.
      */
-    private List<E> preOrder(TreeNode<E> node) {
+    private List<E> preOrder(Node<E> node) {
         List<E> list = new LinkedList<E>();
         if (node != null) {
             list.add(node.data);
@@ -152,7 +151,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for in-order traversal of tree.
      */
-    private List<E> inOrder(TreeNode<E> node) {
+    private List<E> inOrder(Node<E> node) {
         List<E> list = new LinkedList<E>();
         if (node != null) {
             list.addAll(inOrder(node.left));
@@ -172,7 +171,7 @@ public class BinaryTree<E> {
     /*
      * Helper method for post-order traversal of tree.
      */
-    private List<E> postOrder(TreeNode<E> node) {
+    private List<E> postOrder(Node<E> node) {
         List<E> list = new LinkedList<E>();
         if (node != null) {
             list.addAll(postOrder(node.left));
@@ -187,7 +186,7 @@ public class BinaryTree<E> {
      */
     public List<E> levelOrder() {
         List<E> list = new LinkedList<E>();
-        Queue<TreeNode<E>> queue = new LinkedList<TreeNode<E>>();
+        Queue<Node<E>> queue = new LinkedList<Node<E>>();
         // add node at level 1
         if (root != null) {
             queue.add(root);
@@ -197,7 +196,7 @@ public class BinaryTree<E> {
             // nodes in queue at same level
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode<E> node = queue.remove();
+                Node<E> node = queue.remove();
                 // traverse node at current level
                 list.add(node.data);
                 // add left node at next level
@@ -216,16 +215,16 @@ public class BinaryTree<E> {
     /*
      * This inner class represents a node in a (binary) tree.
      */
-    protected static class TreeNode<E> {
+    private static class Node<E> {
         E data;
-        TreeNode<E> left;
-        TreeNode<E> right;
+        Node<E> left;
+        Node<E> right;
 
-        TreeNode(E data) {
+        Node(E data) {
             this(data, null, null);
         }
 
-        TreeNode(E data, TreeNode<E> left, TreeNode<E> right) {
+        Node(E data, Node<E> left, Node<E> right) {
             this.data = data;
             this.left = left;
             this.right = right;
