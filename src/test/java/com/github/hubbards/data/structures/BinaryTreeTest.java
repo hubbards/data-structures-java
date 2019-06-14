@@ -21,7 +21,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testIsEmpty2() {
-        Integer[] values = { 1 };
+        Integer[] values = {1};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -37,7 +37,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testCountLevels2() {
-        Integer[] values = { 1, 2, 3 };
+        Integer[] values = {1, 2, 3};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -46,7 +46,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testCountLevels3() {
-        Integer[] values = { 1, 2, 3, 4 };
+        Integer[] values = {1, 2, 3, 4};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -62,7 +62,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testCountLeaves2() {
-        Integer[] values = { 1 };
+        Integer[] values = {1};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -71,7 +71,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testCountLeaves3() {
-        Integer[] values = { 1, 2, 3 };
+        Integer[] values = {1, 2, 3};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -80,7 +80,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testCountLeaves4() {
-        Integer[] values = { 1, 2, 3, 4, 5 };
+        Integer[] values = {1, 2, 3, 4, 5};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -89,7 +89,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testPreOrder1() {
-        Integer[] values = { 1, 2, 3 };
+        Integer[] values = {1, 2, 3};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -103,7 +103,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testPreOrder2() {
-        Integer[] values = { 1, 2, 3, 4 };
+        Integer[] values = {1, 2, 3, 4};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -118,7 +118,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testInOrder1() {
-        Integer[] values = { 1, 2, 3 };
+        Integer[] values = {1, 2, 3};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -132,7 +132,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testInOrder2() {
-        Integer[] values = { 1, 2, 3, 4 };
+        Integer[] values = {1, 2, 3, 4};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -147,7 +147,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testPostOrder1() {
-        Integer[] values = { 1, 2, 3 };
+        Integer[] values = {1, 2, 3};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -161,7 +161,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testPostOrder2() {
-        Integer[] values = { 1, 2, 3, 4 };
+        Integer[] values = {1, 2, 3, 4};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -176,7 +176,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testLevelOrder1() {
-        Integer[] values = { 1, 2, 3 };
+        Integer[] values = {1, 2, 3};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
@@ -190,7 +190,7 @@ public class BinaryTreeTest {
 
     @Test
     public void testLevelOrder2() {
-        Integer[] values = { 1, 2, 3, 4 };
+        Integer[] values = {1, 2, 3, 4};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
 
