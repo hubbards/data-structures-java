@@ -48,12 +48,15 @@ public class ArrayQueue<E> implements Queue<E> {
         if (isEmpty()) {
             return "[]";
         }
-        String s = "[" + elementData[front % elementData.length];
+        StringBuilder builder = new StringBuilder();
+        builder.append('[');
+        builder.append(elementData[front % elementData.length]);
         for (int i = 1; i < size(); i++) {
-            s += ", " + elementData[(front + i) % elementData.length];
+            builder.append(", ");
+            builder.append(elementData[(front + i) % elementData.length]);
         }
-        s += "]";
-        return s;
+        builder.append(']');
+        return builder.toString();
     }
 
     @Override
