@@ -5,9 +5,9 @@ import java.util.NoSuchElementException;
 import java.util.Iterator;
 
 /**
- * This class represents a generic doubly linked list implementation of the
- * list ADT. This class also implements the queue and stack ADTs.
- * 
+ * This class represents a generic doubly linked list implementation of the list
+ * ADT. This class also implements the queue and stack ADTs.
+ *
  * @author Spencer Hubbard
  */
 public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E> {
@@ -19,8 +19,8 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     private int size;
 
     /**
-    * Constructs an empty list.
-    */
+     * Constructs an empty list.
+     */
     public LinkedList() {
         front = new ListNode(null);
         back = new ListNode(null);

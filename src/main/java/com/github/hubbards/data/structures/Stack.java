@@ -10,7 +10,7 @@ package com.github.hubbards.data.structures;
 public interface Stack<E> {
     /**
      * Checks if this stack is empty.
-     * 
+     *
      * @return <code>true</code> if this queue is empty, otherwise
      * <code>false</code>
      */
@@ -18,16 +18,16 @@ public interface Stack<E> {
 
     /**
      * Adds a given value to the top of this stack.
-     * 
+     *
      * @param value the value to add
      */
     public void push(E value);
 
     /**
      * Returns and removes the value at the top of this stack.
-     * 
+     *
      * @return the value at the top of this stack
-     * 
+     *
      * @throws UnderflowException if this stack is empty
      */
     public E pop();

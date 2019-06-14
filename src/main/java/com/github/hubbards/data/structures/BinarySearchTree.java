@@ -25,9 +25,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     /**
      * Checks if this tree contains a given value.
-     * 
+     *
      * @param value the value to check for
-     * 
+     *
      * @return <code>true</code> if this tree contains the given value,
      * otherwise <code>false</code>
      */
@@ -57,9 +57,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     /**
      * Finds the minimum value in this tree.
-     * 
+     *
      * @return the minimum value in this tree
-     * 
+     *
      * @throws UnderflowException if this tree is empty
      */
     public E findMin() {
@@ -85,9 +85,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     /**
      * Finds the maximum value in this tree.
-     * 
+     *
      * @return the maximum value in this tree
-     * 
+     *
      * @throws UnderflowException if this tree is empty
      */
     public E findMax() {
@@ -149,9 +149,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     /**
      * Removes a given value from this tree if it belongs to this tree.
-     * 
+     *
      * @param value the value to remove
-     * 
+     *
      * @throws UnderflowException if this tree is empty
      */
     public void remove(E value) {

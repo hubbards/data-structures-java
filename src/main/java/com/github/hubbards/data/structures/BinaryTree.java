@@ -12,18 +12,17 @@ import java.util.Queue;
  *
  * <p>
  * A root node is called the parent of the root nodes of its left and right
- * subtrees. The root node of a subtree is called a child of its parent node.
- * If the subtrees of a root node are empty, then the node is called a leaf,
+ * subtrees. The root node of a subtree is called a child of its parent node. If
+ * the subtrees of a root node are empty, then the node is called a leaf,
  * otherwise it is called a branch.
  * </p>
  *
  * <p>
  * The depth of a node in a tree is the length of the path from the root of the
- * tree to the node. The height of a tree is the length of the longest path
- * from the root to a leaf node or negative one if the tree is empty. The
- * number of levels in a tree is one less than the height of the tree. The
- * level of a node in a tree is one more than the depth of the node in the
- * tree.
+ * tree to the node. The height of a tree is the length of the longest path from
+ * the root to a leaf node or negative one if the tree is empty. The number of
+ * levels in a tree is one less than the height of the tree. The level of a node
+ * in a tree is one more than the depth of the node in the tree.
  * </p>
  *
  * @param <E> the element type of this tree

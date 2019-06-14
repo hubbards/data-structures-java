@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 /**
  * This class represents a generic array implementation of the list ADT.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class ArrayList<E> extends AbstractList<E> {
@@ -27,9 +27,9 @@ public class ArrayList<E> extends AbstractList<E> {
     /**
      * Constructs an empty list with a given capacity. See item #26 in Effective
      * Java, 2nd edition.
-     * 
+     *
      * @param capacity the given capacity
-     * 
+     *
      * @throws IllegalArgumentException if capacity is negative
      */
     @SuppressWarnings("unchecked")
@@ -86,9 +86,7 @@ public class ArrayList<E> extends AbstractList<E> {
 
     @Override
     public void add(int index, E value) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("index: " + index);
-        }
+        checkIndex(index);
         ensureCapacity(size + 1);
         for (int i = size; i >= index + 1; i--) {
             elementData[i] = elementData[i - 1];
@@ -139,7 +137,7 @@ public class ArrayList<E> extends AbstractList<E> {
     /**
      * Increases the capacity of this list if a given capacity is greater than
      * the current capacity.
-     * 
+     *
      * @param capacity the given capacity
      */
     public void ensureCapacity(int capacity) {

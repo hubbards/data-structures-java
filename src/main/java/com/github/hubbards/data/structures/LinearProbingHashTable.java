@@ -3,7 +3,7 @@ package com.github.hubbards.data.structures;
 /**
  * This class represents a genaric implementation of the hash table ADT using
  * linear probing to avoid collisions.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class LinearProbingHashTable<E> implements HashTable<E> {
@@ -28,7 +28,7 @@ public class LinearProbingHashTable<E> implements HashTable<E> {
     /**
      * Constructs a hash table with some number of buckets between a given
      * number and twice the given number.
-     * 
+     *
      * @param n the given number
      */
     public LinearProbingHashTable(int n) {
@@ -124,35 +124,6 @@ public class LinearProbingHashTable<E> implements HashTable<E> {
                 insert((E) temp[i]);
             }
         }
-    }
-
-    /**
-     * Prints this hash table. Note that output is formatted "nicely" if values
-     * are no more than six characters long.
-     */
-    public void debug() {
-        System.out.println("debug output");
-        // print row for indices
-        System.out.print("index: ");
-        for (int i = 0; i < buckets.length; i++) {
-            System.out.printf("%-7d", i);
-        }
-        System.out.println();
-        // print row for values
-        System.out.print("value: ");
-        for (int i = 0; i < buckets.length; i++) {
-            // print value in bucket i
-            String string;
-            if (buckets[i] == null || buckets[i].equals(REMOVED)) {
-                string = "null";
-            } else {
-                string = buckets[i].toString();
-            }
-            System.out.printf("%-7s", string);
-        }
-        System.out.println();
-        // print number of elements in table
-        System.out.println("size : " + size);
     }
 
     @Override

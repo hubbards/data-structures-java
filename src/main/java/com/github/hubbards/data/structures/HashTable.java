@@ -1,7 +1,7 @@
 package com.github.hubbards.data.structures;
 
 /**
- * TODO write javadoc comment
+ * This interface represents a generic interface for the hash table ADT.
  *
  * @param <E> the element type of this hash table
  *

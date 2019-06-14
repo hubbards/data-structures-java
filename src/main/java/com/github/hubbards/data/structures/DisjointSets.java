@@ -5,7 +5,7 @@ package com.github.hubbards.data.structures;
  * This class represents an implementation of the disjoint sets (or union-find)
  * ADT using weighted union (union-by-rank) and path compression.
  * </p>
- * 
+ *
  * <p>
  * The worst-case time complexity for any sequence of <em>m = Omega(n)</em>
  * union and find operations on <em>n</em> elements (with weighted union and
@@ -19,7 +19,7 @@ package com.github.hubbards.data.structures;
  * <em>log(log(log(log(25536)))) = 1</em>. Then
  * <em>alpha(m, n) = O(log*(n))</em>.
  * </p>
- * 
+ *
  * @author Spencer Hubbard
  */
 public class DisjointSets {
@@ -28,9 +28,9 @@ public class DisjointSets {
 
     /**
      * Constructs disjoint sets with a given number of elements.
-     * 
+     *
      * @param numElements the given number of elements
-     * 
+     *
      * @throws IllegalArgumentException if given number of elements is not
      * positive
      */
@@ -49,13 +49,11 @@ public class DisjointSets {
      * Forms the union of two given sets. Union-by-rank means make the tree with
      * smaller rank a subtree of the tree with larger rank. Union-by-rank
      * becomes union-by-height without path compression.
-     * 
-     * @param root1 the index of the root element of the first set
-     * 
-     * @param root2 the index of the root element of the second set
-     * 
-     * @throws IndexOutOfBoundsException if the given indices are out of bounds
      *
+     * @param root1 the index of the root element of the first set
+     * @param root2 the index of the root element of the second set
+     *
+     * @throws IndexOutOfBoundsException if the given indices are out of bounds
      * @throws IllegalArgumentException if the given indices are equal or not
      * root elements
      */
@@ -63,6 +61,7 @@ public class DisjointSets {
         // check preconditions
         checkIndex(root1);
         checkIndex(root2);
+        // TODO: replace with checkArgument
         if (root1 == root2 || array[root1] >= 0 || array[root2] >= 0) {
             throw new IllegalArgumentException();
         }
@@ -83,12 +82,12 @@ public class DisjointSets {
     /**
      * Returns the index of the root element of the set containing the element
      * at a given index.
-     * 
+     *
      * @param index the given index
-     * 
+     *
      * @return the index of the root element of the set containing the element
      * at the given index.
-     * 
+     *
      * @throws IndexOutOfBoundsException if the given index is out of bounds
      */
     public int find(int index) {

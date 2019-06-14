@@ -12,10 +12,10 @@ package com.github.hubbards.data.structures;
  * <dd>the key of the root node is no greater than then key of any descendant
  * node.</dd>
  * </dl>
- * 
- * @author Spencer Hubbard
  *
  * @param <E> the element type of this heap
+ *
+ * @author Spencer Hubbard
  */
 public class Heap<E extends Comparable<E>> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -26,8 +26,8 @@ public class Heap<E extends Comparable<E>> {
     private int size;
 
     /**
-    * Constructs a heap with the default capacity.
-    */
+     * Constructs a heap with the default capacity.
+     */
     public Heap() {
         this(DEFAULT_CAPACITY);
     }
@@ -42,6 +42,7 @@ public class Heap<E extends Comparable<E>> {
      */
     @SuppressWarnings("unchecked")
     public Heap(int capacity) {
+        // TODO: repace with checkArgument
         if (capacity < 0) {
             throw new IllegalArgumentException("capacity: " + capacity);
         }
@@ -51,7 +52,7 @@ public class Heap<E extends Comparable<E>> {
 
     /**
      * Inserts a given element into this heap.
-     * 
+     *
      * @param element the element to insert
      */
     public void insert(E element) {
@@ -67,9 +68,9 @@ public class Heap<E extends Comparable<E>> {
 
     /**
      * Returns but does not remove the minimum element in this heap.
-     * 
+     *
      * @return the minimum element in this heap
-     * 
+     *
      * @throws UnderflowException if this heap is empty
      */
     public E findMin() {
@@ -81,9 +82,9 @@ public class Heap<E extends Comparable<E>> {
 
     /**
      * Returns and removes the minimum element in this heap.
-     * 
+     *
      * @return the minimum element in this heap
-     * 
+     *
      * @throws UnderflowException if this heap is empty
      */
     public E deleteMin() {
@@ -101,7 +102,7 @@ public class Heap<E extends Comparable<E>> {
 
     /**
      * Checks if this heap is empty.
-     * 
+     *
      * @return <code>true</code> if this heap is empty, otherwise
      * <code>false</code>
      */

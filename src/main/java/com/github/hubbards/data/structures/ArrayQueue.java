@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * This class represents a generic circular array implementation of the queue
  * ADT.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class ArrayQueue<E> implements Queue<E> {
@@ -28,9 +28,9 @@ public class ArrayQueue<E> implements Queue<E> {
     /**
      * Constructs an empty queue with a given capacity. See item #26 in
      * Effective Java, 2nd edition.
-     * 
+     *
      * @param capacity the given capacity
-     * 
+     *
      * @throws IllegalArgumentException if capacity is nonpositive
      */
     @SuppressWarnings("unchecked")
@@ -63,7 +63,7 @@ public class ArrayQueue<E> implements Queue<E> {
 
     /**
      * Returns the number of elements in this array queue.
-     * 
+     *
      * @return the number of elements in this array queue
      */
     public int size() {
@@ -98,7 +98,7 @@ public class ArrayQueue<E> implements Queue<E> {
     /**
      * Increases the capacity of this queue if a given capacity is greater than
      * the current capacity.
-     * 
+     *
      * @param capacity the given capacity
      */
     public void ensureCapacity(int capacity) {

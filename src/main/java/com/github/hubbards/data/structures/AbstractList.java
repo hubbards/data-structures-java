@@ -2,7 +2,7 @@ package com.github.hubbards.data.structures;
 
 /**
  * This abstract class represents a generic abstract class for the list ADT.
- * 
+ *
  * @author Spencer Hubbard
  */
 public abstract class AbstractList<E> implements List<E> {

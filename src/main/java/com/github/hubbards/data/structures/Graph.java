@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * This class represents a directed graph with no multiple edge.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class Graph {
@@ -24,11 +24,10 @@ public class Graph {
 
     /**
      * Adds a given edge to this graph.
-     * 
+     *
      * @param tail the tail of the given edge
-     * 
      * @param head the head of the given edge
-     * 
+     *
      * @throws GraphException if graph does not contain the end-points of the
      * given edge or the given edge is a multiple edge
      */
@@ -47,9 +46,9 @@ public class Graph {
 
     /**
      * Adds a given vertex (or node) to this graph.
-     * 
+     *
      * @param name the name of the given vertex
-     * 
+     *
      * @throws GraphException if this graph already contains the given vertex
      */
     public void addVertex(String name) {
@@ -64,9 +63,9 @@ public class Graph {
 
     /**
      * Checks if this graph contains a given vertex.
-     * 
+     *
      * @param name the name of the given vertex
-     * 
+     *
      * @return <code>true</code> if this graph contains the given vertex,
      * otherwise <code>false</code>
      */
@@ -76,11 +75,10 @@ public class Graph {
 
     /**
      * Checks if this graph contains a given edge.
-     * 
+     *
      * @param tail the tail of the given edge
-     * 
      * @param head the head of the given edge
-     * 
+     *
      * @return <code>true</code> if this graph contains the given edge,
      * otherwise <code>false</code>
      */
@@ -99,99 +97,6 @@ public class Graph {
         return false;
     }
 
-    /**
-     * Prints the adjacency list representation of this graph.
-     */
-    public void printAdjacencyList() {
-        System.out.print("vertex: adjacency list:\n");
-        for (Vertex u : map.values()) {
-            // print vertex v
-            System.out.printf("%-3.3s     ", u.name);
-            // print adjacency list for vertex v
-            Iterator<Vertex> i = u.adj.iterator();
-            if (i.hasNext()) {
-                Vertex v = i.next();
-                System.out.printf("%-3.3s", v.name);
-                while (i.hasNext()) {
-                    v = i.next();
-                    System.out.printf(" --> %-3.3s", v.name);
-                }
-                System.out.print("\n");
-            } else {
-                System.out.print("null\n");
-            }
-        }
-    }
-
-    /**
-     * Prints the adjacency matrix representation of this graph.
-     */
-    public void printAdjacencyMatrix() {
-        // index vertices of graph
-        Vertex[] v = map.values().toArray(new Vertex[0]);
-        // print column indices
-        System.out.print("   ");
-        for (int i = 0; i < v.length; i++) {
-            System.out.printf(" %-3.3s", v[i].name);
-        }
-        System.out.print("\n");
-        // print rows of adjacency matrix
-        for (int i = 0; i < v.length; i++) {
-            // print row index
-            System.out.printf("%-3.3s", v[i].name);
-            // print row i of adjacency matrix
-            for (int j = 0; j < v.length; j++) {
-                if (containsEdge(v[i].name, v[j].name)) {
-                    // vertex i is adjacent to vertex j
-                    System.out.printf(" %-3d", 1);
-                } else {
-                    // vertex i is not adjacent to vertex j
-                    System.out.printf(" %-3d", 0);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
-
-    /**
-     * Prints the incidence matrix of this graph.
-     */
-    public void printIncidenceMatrix() {
-        // index vertices of graph
-        Vertex[] u = map.values().toArray(new Vertex[0]);
-        // index edges of graph
-        Vertex[][] v = new Vertex[u.length][];
-        for (int i = 0; i < u.length; i++) {
-            v[i] = u[i].adj.toArray(new Vertex[0]);
-        }
-        // print column indices (edges)
-        System.out.print("   ");
-        for (int i = 0; i < u.length; i++) {
-            for (int j = 0; j < v[i].length; j++) {
-                System.out.printf(" (%-3.3s, %-3.3s)", u[i].name, v[i][j].name);
-            }
-        }
-        System.out.print("\n");
-        // print rows of incidence matrix
-        for (int i = 0; i < u.length; i++) {
-            // print row index (vertex)
-            System.out.printf("%-3.3s", u[i].name);
-            // print row i of incidence matrix
-            for (int j = 0; j < u.length; j++) {
-                for (int k = 0; k < v[j].length; k++) {
-                    if (j == i) {
-                        // vertex i is incident to edge (j, k)
-                        System.out.printf(" %-10d", 1);
-                    } else {
-                        // vertex i is not incident to edge (j, k)
-                        System.out.printf(" %-10d", 0);
-                    }
-                }
-            }
-            System.out.print("\n");
-        }
-    }
-
     /*
      * Throws exception if this graph does not contain a given vertex.
      */
@@ -206,11 +111,11 @@ public class Graph {
      */
     private class Vertex {
         // name of this vertex
-        public final String name;
+        final String name;
         // adjacency list for this vertex
-        public List<Vertex> adj;
+        List<Vertex> adj;
 
-        public Vertex(String name) {
+        Vertex(String name) {
             this.name = name;
             adj = new LinkedList<Vertex>();
         }

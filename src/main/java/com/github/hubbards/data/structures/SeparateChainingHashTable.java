@@ -3,7 +3,7 @@ package com.github.hubbards.data.structures;
 /**
  * This class represents a genaric implementation of the hash table ADT using
  * separate chaining to avoid collisions.
- * 
+ *
  * @author Spencer Hubbard
  */
 public class SeparateChainingHashTable<E> implements HashTable<E> {
@@ -25,7 +25,7 @@ public class SeparateChainingHashTable<E> implements HashTable<E> {
     /**
      * Constructs a hash table with some number of buckets between a given
      * number and twice the given number.
-     * 
+     *
      * @param n the given number
      */
     @SuppressWarnings("unchecked")
