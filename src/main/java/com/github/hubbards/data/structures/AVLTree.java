@@ -14,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class AVLTree<E extends Comparable<E>> {
     // root node of tree
-    private Node<E> root;
+    private Node root;
 
     /**
      * Constructs an empty tree.
@@ -40,7 +40,7 @@ public class AVLTree<E extends Comparable<E>> {
     /*
      * Helper method for finding minimum value.
      */
-    private E findMin(Node<E> node) {
+    private E findMin(Node node) {
         checkNotNull(node);
         if (node.left == null) {
             // smallest value at node
@@ -68,7 +68,7 @@ public class AVLTree<E extends Comparable<E>> {
     /*
      * Helper method for finding maximum value.
      */
-    private E findMax(Node<E> node) {
+    private E findMax(Node node) {
         checkNotNull(node);
         if (node.right == null) {
             // largest value at node
@@ -96,10 +96,10 @@ public class AVLTree<E extends Comparable<E>> {
         root = insert(root, value);
     }
 
-    private Node<E> insert(Node<E> node, E value) {
+    private Node insert(Node node, E value) {
         if (node == null) {
             // add at root
-            return new Node<E>(value);
+            return new Node(value);
         }
         int temp = value.compareTo(node.data);
         if (temp < 0) {
@@ -145,7 +145,7 @@ public class AVLTree<E extends Comparable<E>> {
         root = remove(root, value);
     }
 
-    private Node<E> remove(Node<E> node, E value) {
+    private Node remove(Node node, E value) {
         // TODO: implement
         throw new RuntimeException("method not implemented");
     }
@@ -168,11 +168,11 @@ public class AVLTree<E extends Comparable<E>> {
      * L2          N1
      *          R2    R1
      */
-    private Node<E> singleL(Node<E> node1) {
+    private Node singleL(Node node1) {
         checkNotNull(node1);
         checkNotNull(node1.left);
         // single rotation with left child
-        Node<E> node2 = node1.left;
+        Node node2 = node1.left;
         node1.left = node2.right;
         node2.right = node1;
         // update height
@@ -200,11 +200,11 @@ public class AVLTree<E extends Comparable<E>> {
      *    N1          R2
      * L1    L2
      */
-    private Node<E> singleR(Node<E> node1) {
+    private Node singleR(Node node1) {
         checkNotNull(node1);
         checkNotNull(node1.right);
         // single rotation with right child
-        Node<E> node2 = node1.right;
+        Node node2 = node1.right;
         node1.right = node2.left;
         node2.left = node1;
         // update height
@@ -234,7 +234,7 @@ public class AVLTree<E extends Comparable<E>> {
      *    N2          N1
      * L1    L3    R3    R1
      */
-    private Node<E> doubleLR(Node<E> node1) {
+    private Node doubleLR(Node node1) {
         checkNotNull(node1);
         checkNotNull(node1.left);
         checkNotNull(node1.left.right);
@@ -264,7 +264,7 @@ public class AVLTree<E extends Comparable<E>> {
      *    N1          N2
      * L1    L3    R3    R2
      */
-    private Node<E> doubleRL(Node<E> node1) {
+    private Node doubleRL(Node node1) {
         checkNotNull(node1);
         checkNotNull(node1.right);
         checkNotNull(node1.right.left);
@@ -277,20 +277,20 @@ public class AVLTree<E extends Comparable<E>> {
     /*
      * Returns the height of a given subtree.
      */
-    private int height(Node<E> node) {
+    private int height(Node node) {
         return node == null ? -1 : node.height;
     }
 
     /*
      * This inner class represents a node in an AVL tree.
      */
-    private static class Node<E> {
-        E data;
-        Node<E> left;
-        Node<E> right;
-        int height;
+    private class Node {
+        public E data;
+        public Node left;
+        public Node right;
+        public int height;
 
-        Node(E value) {
+        public Node(E value) {
             data = value;
             left = null;
             right = null;

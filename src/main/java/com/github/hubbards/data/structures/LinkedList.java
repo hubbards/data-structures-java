@@ -12,9 +12,9 @@ import java.util.Iterator;
  */
 public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E> {
     // first dummy node
-    private ListNode front;
+    private Node front;
     // last dummy node
-    private ListNode back;
+    private Node back;
     // number of elements in list
     private int size;
 
@@ -22,8 +22,8 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
      * Constructs an empty list.
      */
     public LinkedList() {
-        front = new ListNode(null);
-        back = new ListNode(null);
+        front = new Node(null);
+        back = new Node(null);
         clear();
     }
 
@@ -35,7 +35,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     @Override
     public E get(int index) {
         checkIndex(index);
-        ListNode current = nodeAt(index);
+        Node current = nodeAt(index);
         return current.data;
     }
 
@@ -45,7 +45,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
         builder.append('[');
         if (!isEmpty()) {
             builder.append(front.next.data);
-            ListNode current = front.next.next;
+            Node current = front.next.next;
             while (current != back) {
                 builder.append(", ");
                 builder.append(current.data);
@@ -59,7 +59,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     @Override
     public int indexOf(E value) {
         int index = 0;
-        ListNode current = front.next;
+        Node current = front.next;
         while (current != back) {
             if (current.data.equals(value)) {
                 return index;
@@ -80,8 +80,8 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("index: " + index);
         }
-        ListNode current = nodeAt(index - 1);
-        ListNode newNode = new ListNode(value, current.next, current);
+        Node current = nodeAt(index - 1);
+        Node newNode = new Node(value, current.next, current);
         current.next = newNode;
         newNode.next.prev = newNode;
         size++;
@@ -97,7 +97,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     @Override
     public void remove(int index) {
         checkIndex(index);
-        ListNode current = nodeAt(index - 1);
+        Node current = nodeAt(index - 1);
         current.next = current.next.next;
         current.next.prev = current;
         size--;
@@ -106,7 +106,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     @Override
     public void set(int index, E value) {
         checkIndex(index);
-        ListNode current = nodeAt(index);
+        Node current = nodeAt(index);
         current.data = value;
     }
 
@@ -153,7 +153,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
 
     @Override
     public Iterator<E> iterator() {
-        return new LinkedIterator();
+        return new NodeIterator();
     }
 
     /*
@@ -170,8 +170,8 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     /*
      * Returns the node at a given index, otherwise throws an exception.
      */
-    private ListNode nodeAt(int index) {
-        ListNode current;
+    private Node nodeAt(int index) {
+        Node current;
         if (index < size / 2) {
             // start from front of list
             current = front;
@@ -191,25 +191,25 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     /*
      * This inner class represents a node used in a doubly linked list.
      */
-    private class ListNode {
+    private class Node {
         // data stored in node
         public E data;
         // link to next node in list
-        public ListNode next;
+        public Node next;
         // link to previous node in list
-        public ListNode prev;
+        public Node prev;
 
         /*
          * Constructs a node with given data and null links.
          */
-        public ListNode(E data) {
+        public Node(E data) {
             this(data, null, null);
         }
 
         /*
          * Constructs a node with given data and given links.
          */
-        public ListNode(E data, ListNode next, ListNode prev) {
+        public Node(E data, Node next, Node prev) {
             this.data = data;
             this.next = next;
             this.prev = prev;
@@ -219,13 +219,13 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
     /*
      * This inner class represents an iterator used for a linked list.
      */
-    private class LinkedIterator implements Iterator<E> {
+    private class NodeIterator implements Iterator<E> {
         // next element
-        private ListNode current;
+        private Node current;
         // legal state for remove
         private boolean removeOK;
 
-        public LinkedIterator() {
+        public NodeIterator() {
             current = front.next;
             removeOK = false;
         }
@@ -251,7 +251,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
             if (!removeOK) {
                 throw new IllegalStateException();
             }
-            ListNode prev2 = current.prev.prev;
+            Node prev2 = current.prev.prev;
             prev2.next = current;
             current.prev = prev2;
             size--;

@@ -14,7 +14,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class BinarySearchTree<E extends Comparable<E>> {
     // root node of tree
-    private Node<E> root;
+    private Node root;
 
     /**
      * Constructs an empty tree.
@@ -38,7 +38,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /*
      * Helper method for finding value.
      */
-    private boolean contains(Node<E> node, E value) {
+    private boolean contains(Node node, E value) {
         if (node == null) {
             return false;
         }
@@ -72,7 +72,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /*
      * Helper method for finding minimum value.
      */
-    private E findMin(Node<E> node) {
+    private E findMin(Node node) {
         checkNotNull(node);
         if (node.left == null) {
             // smallest value at node
@@ -100,7 +100,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /*
      * Helper method for finding maximum value.
      */
-    private E findMax(Node<E> node) {
+    private E findMax(Node node) {
         checkNotNull(node);
         if (node.right == null) {
             // largest value at node
@@ -131,10 +131,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /*
      * Helper method for inserting.
      */
-    private Node<E> insert(Node<E> node, E value) {
+    private Node insert(Node node, E value) {
         if (node == null) {
             // add at root
-            return new Node<E>(value);
+            return new Node(value);
         }
         int temp = value.compareTo(node.data);
         if (temp < 0) {
@@ -164,7 +164,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /*
      * Helper method for removing.
      */
-    private Node<E> remove(Node<E> node, E value) {
+    private Node remove(Node node, E value) {
         if (node == null) {
             // value not in tree
             return null;
@@ -193,16 +193,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
     /*
      * This inner class represents a node in a (binary search) tree.
      */
-    private static class Node<E> {
-        E data;
-        Node<E> left;
-        Node<E> right;
+    private class Node {
+        public E data;
+        public Node left;
+        public Node right;
 
-        Node(E data) {
+        public Node(E data) {
             this(data, null, null);
         }
 
-        Node(E data, Node<E> left, Node<E> right) {
+        public Node(E data, Node left, Node right) {
             this.data = data;
             this.left = left;
             this.right = right;

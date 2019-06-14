@@ -111,11 +111,11 @@ public class Graph {
      */
     private class Vertex {
         // name of this vertex
-        final String name;
+        public final String name;
         // adjacency list for this vertex
-        List<Vertex> adj;
+        public List<Vertex> adj;
 
-        Vertex(String name) {
+        public Vertex(String name) {
             this.name = name;
             adj = new LinkedList<Vertex>();
         }
