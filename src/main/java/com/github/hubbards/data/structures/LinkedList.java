@@ -77,9 +77,7 @@ public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E>
 
     @Override
     public void add(int index, E value) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("index: " + index);
-        }
+        checkIndex(index);
         Node current = nodeAt(index - 1);
         Node newNode = new Node(value, current.next, current);
         current.next = newNode;
