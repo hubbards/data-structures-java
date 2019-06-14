@@ -100,12 +100,24 @@ public abstract class QueueTest {
     @Test
     public void testPeek3() {
         queue.enqueue(1);
+
+        assertEquals(1, (int) queue.peek());
+    }
+
+    @Test
+    public void testPeek4() {
+        queue.enqueue(1);
         queue.enqueue(2);
 
         assertEquals(1, (int) queue.peek());
+    }
 
-        queue.enqueue(3);
+    @Test
+    public void testPeek5() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.dequeue();
 
-        assertEquals(1, (int) queue.peek());
+        assertEquals(2, (int) queue.peek());
     }
 }
