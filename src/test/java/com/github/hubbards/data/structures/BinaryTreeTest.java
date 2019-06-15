@@ -21,6 +21,15 @@ public class BinaryTreeTest {
 
     @Test
     public void testIsEmpty2() {
+        Integer[] values = {};
+
+        BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
+
+        assertTrue(tree.isEmpty());
+    }
+
+    @Test
+    public void testIsEmpty3() {
         Integer[] values = {1};
 
         BinaryTree<Integer> tree = new BinaryTree<Integer>(values);
