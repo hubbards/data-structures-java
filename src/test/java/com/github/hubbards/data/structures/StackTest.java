@@ -52,19 +52,19 @@ public abstract class StackTest {
     }
 
     @Test(expected = EmptyStackException.class)
-    public void testPop1() {
+    public void testPopThrows1() {
         stack.pop();
     }
 
     @Test(expected = EmptyStackException.class)
-    public void testPop2() {
+    public void testPopThrows2() {
         stack.push(1);
         stack.pop();
         stack.pop();
     }
 
     @Test
-    public void testPop3() {
+    public void testPop1() {
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -75,7 +75,7 @@ public abstract class StackTest {
     }
 
     @Test
-    public void testPop4() {
+    public void testPop2() {
         stack.push(1);
         stack.push(2);
 

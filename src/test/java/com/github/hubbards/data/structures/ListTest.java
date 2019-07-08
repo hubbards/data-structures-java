@@ -69,4 +69,30 @@ public abstract class ListTest {
 
         assertEquals(1, list.size());
     }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetThrows1() {
+        list.get(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetThrows2() {
+        list.add(1);
+        list.get(1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetThrows3() {
+        list.add(1);
+        list.remove(0);
+        list.get(0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetThrows4() {
+        list.add(1);
+        list.add(1);
+        list.remove(1);
+        list.get(1);
+    }
 }

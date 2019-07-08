@@ -59,6 +59,12 @@ public class BinarySearchTreeTest {
         assertTrue(tree.contains(2));
     }
 
+    @Test(expected = UnderflowException.class)
+    public void testFindMinThrows1() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
+        tree.findMin();
+    }
+
     @Test
     public void testFindMin1() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
@@ -107,6 +113,12 @@ public class BinarySearchTreeTest {
         tree.remove(1);
 
         assertEquals(2, (int) tree.findMin());
+    }
+
+    @Test(expected = UnderflowException.class)
+    public void testFindMaxThrows1() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>();
+        tree.findMax();
     }
 
     @Test

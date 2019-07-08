@@ -11,6 +11,12 @@ import static org.junit.Assert.*;
  * @author Spencer Hubbard
  */
 public class AVLTreeTest {
+    @Test(expected = UnderflowException.class)
+    public void testFindMinThrows1() {
+        AVLTree<Integer> tree = new AVLTree<Integer>();
+        tree.findMin();
+    }
+
     @Test
     public void testFindMin1() {
         AVLTree<Integer> tree = new AVLTree<Integer>();
@@ -87,6 +93,12 @@ public class AVLTreeTest {
         tree.insert(1);
 
         assertEquals(1, (int) tree.findMin());
+    }
+
+    @Test(expected = UnderflowException.class)
+    public void testFindMaxThrows1() {
+        AVLTree<Integer> tree = new AVLTree<Integer>();
+        tree.findMax();
     }
 
     @Test

@@ -48,19 +48,35 @@ public class HeapTest {
     }
 
     @Test(expected = UnderflowException.class)
-    public void testFindMin1() {
+    public void testFindMinThrows1() {
         heap.findMin();
     }
 
     @Test(expected = UnderflowException.class)
-    public void testFindMin2() {
+    public void testFindMinThrows2() {
         heap.insert(1);
         heap.deleteMin();
         heap.findMin();
     }
 
     @Test
+    public void testFindMin1() {
+        heap.insert(1);
+
+        assertEquals(1, (int) heap.findMin());
+    }
+
+    @Test
+    public void testFindMin2() {
+        heap.insert(1);
+        heap.insert(2);
+
+        assertEquals(1, (int) heap.findMin());
+    }
+
+    @Test
     public void testFindMin3() {
+        heap.insert(2);
         heap.insert(1);
 
         assertEquals(1, (int) heap.findMin());
@@ -70,34 +86,18 @@ public class HeapTest {
     public void testFindMin4() {
         heap.insert(1);
         heap.insert(2);
-
-        assertEquals(1, (int) heap.findMin());
-    }
-
-    @Test
-    public void testFindMin5() {
-        heap.insert(2);
-        heap.insert(1);
-
-        assertEquals(1, (int) heap.findMin());
-    }
-
-    @Test
-    public void testFindMin6() {
-        heap.insert(1);
-        heap.insert(2);
         heap.deleteMin();
 
         assertEquals(2, (int) heap.findMin());
     }
 
     @Test(expected = UnderflowException.class)
-    public void testDeleteMin1() {
+    public void testDeleteMinThrows1() {
         heap.deleteMin();
     }
 
     @Test(expected = UnderflowException.class)
-    public void testDeleteMin2() {
+    public void testDeleteMinThrows2() {
         heap.insert(1);
         heap.deleteMin();
         heap.deleteMin();

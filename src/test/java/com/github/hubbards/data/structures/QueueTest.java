@@ -50,31 +50,31 @@ public abstract class QueueTest {
     }
 
     @Test(expected = UnderflowException.class)
-    public void testDequeue1() {
+    public void testDequeueThrows1() {
         queue.dequeue();
     }
 
     @Test(expected = UnderflowException.class)
+    public void testDequeueThrows2() {
+        queue.enqueue(1);
+        queue.dequeue();
+        queue.dequeue();
+    }
+
+    @Test
+    public void testDequeue1() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        assertEquals(1, (int) queue.dequeue());
+        assertEquals(2, (int) queue.dequeue());
+        assertEquals(3, (int) queue.dequeue());
+    }
+
+    @Test
     public void testDequeue2() {
         queue.enqueue(1);
-        queue.dequeue();
-        queue.dequeue();
-    }
-
-    @Test
-    public void testDequeue3() {
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-
-        assertEquals(1, (int) queue.dequeue());
-        assertEquals(2, (int) queue.dequeue());
-        assertEquals(3, (int) queue.dequeue());
-    }
-
-    @Test
-    public void testDequeue4() {
-        queue.enqueue(1);
         queue.enqueue(2);
 
         assertEquals(1, (int) queue.dequeue());
@@ -86,34 +86,34 @@ public abstract class QueueTest {
     }
 
     @Test(expected = UnderflowException.class)
-    public void testPeek1() {
+    public void testPeekThrows1() {
         queue.peek();
     }
 
     @Test(expected = UnderflowException.class)
+    public void testPeekThrows2() {
+        queue.enqueue(1);
+        queue.dequeue();
+        queue.peek();
+    }
+
+    @Test
+    public void testPeek1() {
+        queue.enqueue(1);
+
+        assertEquals(1, (int) queue.peek());
+    }
+
+    @Test
     public void testPeek2() {
         queue.enqueue(1);
-        queue.dequeue();
-        queue.peek();
+        queue.enqueue(2);
+
+        assertEquals(1, (int) queue.peek());
     }
 
     @Test
     public void testPeek3() {
-        queue.enqueue(1);
-
-        assertEquals(1, (int) queue.peek());
-    }
-
-    @Test
-    public void testPeek4() {
-        queue.enqueue(1);
-        queue.enqueue(2);
-
-        assertEquals(1, (int) queue.peek());
-    }
-
-    @Test
-    public void testPeek5() {
         queue.enqueue(1);
         queue.enqueue(2);
         queue.dequeue();
