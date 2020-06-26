@@ -6,7 +6,6 @@ package com.github.hubbards.data.structures;
  *
  * @author Spencer Hubbard
  */
-@SuppressWarnings("serial")
 public class UnderflowException extends RuntimeException {
     /**
      * Constructs a new underflow exception.
