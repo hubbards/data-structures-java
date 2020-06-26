@@ -1,4 +1,4 @@
-package com.github.hubbards.data.structures;
+package com.github.hubbards.data.structures.graph;
 
 /**
  * This class represents a runtime exception that indicates violation of a
