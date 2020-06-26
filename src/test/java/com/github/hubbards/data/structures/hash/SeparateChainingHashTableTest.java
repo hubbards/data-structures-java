@@ -1,4 +1,4 @@
-package com.github.hubbards.data.structures;
+package com.github.hubbards.data.structures.hash;
 
 /**
  * This program is a simple test suite for the {@link SeparateChainingHashTable}

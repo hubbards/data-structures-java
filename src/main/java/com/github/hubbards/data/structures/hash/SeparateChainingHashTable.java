@@ -1,4 +1,4 @@
-package com.github.hubbards.data.structures;
+package com.github.hubbards.data.structures.hash;
 
 /**
  * This class represents a genaric implementation of the hash table ADT using

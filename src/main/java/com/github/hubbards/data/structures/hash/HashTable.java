@@ -1,4 +1,4 @@
-package com.github.hubbards.data.structures;
+package com.github.hubbards.data.structures.hash;
 
 /**
  * This interface represents a generic interface for the hash table ADT.

@@ -1,4 +1,4 @@
-package com.github.hubbards.data.structures;
+package com.github.hubbards.data.structures.hash;
 
 import java.util.Stack;
 import java.util.Queue;
