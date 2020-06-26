@@ -13,7 +13,7 @@ public interface HashTable<E> {
      *
      * @return the number of elements in this hash table
      */
-    public int size();
+    int size();
 
     /**
      * Checks if this hash table is empty.
@@ -21,7 +21,7 @@ public interface HashTable<E> {
      * @return <code>true</code> if this hash table is empty, otherwise
      * <code>false</code>
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Checks if a given value is contained in this hash table.
@@ -31,7 +31,7 @@ public interface HashTable<E> {
      * @return <code>true</code> if the given value belongs to this hash table,
      * otherwise <code>false</code>
      */
-    public boolean contains(E value);
+    boolean contains(E value);
 
     /**
      * Inserts a given value into this hash table if this hash table does not
@@ -42,7 +42,7 @@ public interface HashTable<E> {
      *
      * @param value the value to insert
      */
-    public void insert(E value);
+    void insert(E value);
 
     /**
      * Removes a given value from this hash table if this hash table contains
@@ -50,5 +50,5 @@ public interface HashTable<E> {
      *
      * @param value the value to remove
      */
-    public void remove(E value);
+    void remove(E value);
 }
