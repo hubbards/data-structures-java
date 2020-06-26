@@ -108,7 +108,7 @@ public class Graph {
     /*
      * This inner class represents a vertex (or node) of a graph.
      */
-    private class Vertex {
+    private static class Vertex {
         // name of this vertex
         public final String name;
         // adjacency list for this vertex
