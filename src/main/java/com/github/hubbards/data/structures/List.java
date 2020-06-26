@@ -15,7 +15,7 @@ public interface List<E> extends Iterable<E> {
      *
      * @return the number of elements in this list
      */
-    public int size();
+    int size();
 
     /**
      * Finds the element at a given index in this list.
@@ -27,7 +27,7 @@ public interface List<E> extends Iterable<E> {
      * @throws IndexOutOfBoundsException if the given index is negative or at
      * least the size of this list
      */
-    public E get(int index);
+    E get(int index);
 
     /**
      * Finds the index of the first occurrence of a given value in this list.
@@ -37,7 +37,7 @@ public interface List<E> extends Iterable<E> {
      * @return the index of the first occurrence of the given value or
      * <code>-1</code> if this list does not contain the given value
      */
-    public int indexOf(E value);
+    int indexOf(E value);
 
     /**
      * Checks if this list is empty.
@@ -45,7 +45,7 @@ public interface List<E> extends Iterable<E> {
      * @return <code>true</code> if this list is empty, otherwise
      * <code>false</code>
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Checks if this list contains a given value.
@@ -55,14 +55,14 @@ public interface List<E> extends Iterable<E> {
      * @return <code>true</code> if this list contains the given value,
      * otherwise <code>false</code>
      */
-    public boolean contains(E value);
+    boolean contains(E value);
 
     /**
      * Adds a given value to the end of this list.
      *
      * @param value the value to add
      */
-    public void add(E value);
+    void add(E value);
 
     /**
      * Adds a given value at a given index in this list.
@@ -73,14 +73,14 @@ public interface List<E> extends Iterable<E> {
      * @throws IndexOutOfBoundsException if the given index is negative or
      * greater than the size of this list
      */
-    public void add(int index, E value);
+    void add(int index, E value);
 
     /**
      * Appends the elements of a given list to the end of this list.
      *
      * @param other the other list to add
      */
-    public void addAll(List<E> other);
+    void addAll(List<E> other);
 
     /**
      * Removes the element at a given index in this list.
@@ -90,7 +90,7 @@ public interface List<E> extends Iterable<E> {
      * @throws IndexOutOfBoundsException if the given index is negative or at
      * least the size of this list
      */
-    public void remove(int index);
+    void remove(int index);
 
     /**
      * Sets the value of the element at a given index in this list to a given
@@ -102,10 +102,10 @@ public interface List<E> extends Iterable<E> {
      * @throws IndexOutOfBoundsException if the given index is negative or at
      * least the size of this list
      */
-    public void set(int index, E value);
+    void set(int index, E value);
 
     /**
      * Removes all elements from this list.
      */
-    public void clear();
+    void clear();
 }

@@ -14,14 +14,14 @@ public interface Stack<E> {
      * @return <code>true</code> if this queue is empty, otherwise
      * <code>false</code>
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Adds a given value to the top of this stack.
      *
      * @param value the value to add
      */
-    public void push(E value);
+    void push(E value);
 
     /**
      * Returns and removes the value at the top of this stack.
@@ -30,5 +30,5 @@ public interface Stack<E> {
      *
      * @throws UnderflowException if this stack is empty
      */
-    public E pop();
+    E pop();
 }

@@ -15,14 +15,14 @@ public interface Queue<E> {
      * @return <code>true</code> if this queue is empty, otherwise
      * <code>false</code>
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Adds a given value to the back of this queue.
      *
      * @param value the value to add
      */
-    public void enqueue(E value);
+    void enqueue(E value);
 
     /**
      * Returns and removes the value at the front of this queue.
@@ -31,7 +31,7 @@ public interface Queue<E> {
      *
      * @throws UnderflowException if this queue is empty
      */
-    public E dequeue();
+    E dequeue();
 
     /**
      * Returns but do not removes the value at the front of this queue.
@@ -40,5 +40,5 @@ public interface Queue<E> {
      *
      * @throws UnderflowException if this queue is empty
      */
-    public E peek();
+    E peek();
 }
