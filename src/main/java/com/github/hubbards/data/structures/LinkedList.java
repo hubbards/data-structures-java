@@ -12,9 +12,9 @@ import java.util.Iterator;
  */
 public class LinkedList<E> extends AbstractList<E> implements Queue<E>, Stack<E> {
     // first dummy node
-    private Node front;
+    private final Node front;
     // last dummy node
-    private Node back;
+    private final Node back;
     // number of elements in list
     private int size;
 
